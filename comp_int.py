@@ -6,7 +6,7 @@ import pandas as pd
 
 # from sklearn.ensemble import RandomForestClassifier
 
-Year_List=[0,1,2,3,4,5,6,7,8,9,10]
+Year_List=[1,2,3,4,5,6,7,8,9,10]
 
 
 st.write("""
@@ -75,3 +75,9 @@ def compound_int(Principal, Int_Rate, No_Of_Years):
 st.subheader('The calculated compound interest is')
 
 #st.write(result)
+df_1=compound_int(df.Principal, df.Int_Rate, df.No_Of_Years)
+
+
+st.subheader('This is print of data frame')
+
+st.write(df_1)
