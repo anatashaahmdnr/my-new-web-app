@@ -6,12 +6,12 @@ import pandas as pd
 
 # from sklearn.ensemble import RandomForestClassifier
 
-Year_List=[2,3,4,5,6,7,8,9,10]
+Year_List=[0,1,2,3,4,5,6,7,8,9,10]
 
 
 st.write("""
 
-# Compound Interest Calculator!
+## Compound Interest Calculator
 
 """)
 
@@ -23,21 +23,21 @@ st.sidebar.header('User Input Values')
 
 def user_input_features():
 
-    Int_Rate = st.sidebar.slider('Interest Rate in %', 6.0, 42.0, 10.0)
+    Int_Rate = st.sidebar.slider('Interest Rate (%)', 5.0, 50.0, 10.0)
 
     	##st.sidebar.add_rows
 
-    Principal = st.sidebar.text_input('Please input Principal Amount',10000)
+    Principal = st.sidebar.text_input('Principal Amount',10000)
 
     	##st.sidebar.add_rows
 
-    No_Of_Years = st.sidebar.selectbox('Select No Of Years',Year_List, 2)
+    No_Of_Years = st.sidebar.selectbox('No of Years',Year_List, 0)
 
 
 
-    data = {'Int_Rate': Int_Rate,	
+    data = {'Interest rate': Int_Rate,	
             'Principal': Principal,	
-            'No_Of_Years': No_Of_Years}
+            'No of Years': No_Of_Years}
     features = pd.DataFrame(data, index=[0])
     return features
 
@@ -47,7 +47,7 @@ df = user_input_features()
 
 
 
-st.subheader('User Entered parameters for Rate, Principal amount and No of years is')
+st.subheader('Entered parameters for interest rate, principal amount and no of years is')
 
 st.write(df)
 
@@ -72,13 +72,6 @@ def compound_int(Principal, Int_Rate, No_Of_Years):
 
 
 
-
 st.subheader('The calculated compound interest is')
 
 #st.write(result)
-df_1=compound_int(df.Principal, df.Int_Rate, df.No_Of_Years)
-
-
-st.subheader('This is print of data frame')
-
-st.write(df_1)
