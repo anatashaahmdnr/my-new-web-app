@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run comp_int.py
+web: sh setup.sh && streamlit run Comp_Int_00.py
